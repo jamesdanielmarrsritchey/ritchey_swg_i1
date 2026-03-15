@@ -1,0 +1,4 @@
+Name: Private Folder
+Description: This indicates the path, within the application root, to the "private" folder. The default value is "/www/private".
+Status: Restricted
+Content: /www/private

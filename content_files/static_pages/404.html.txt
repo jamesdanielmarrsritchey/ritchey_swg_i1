@@ -1,0 +1,17 @@
+Name: 404
+Description: This contains content for the the file "/www/public/404.html".
+Destination: /404.html
+Content:
+"
+<h1>404 Not Found</h1>
+<div>Sorry, but we couldn't find the requested item. It may been moved, deleted, or never existed. Try doing a <a id='item_redirection_link' href="/pages/search.html">search</a>.</div>
+<script>
+function manual_redirect_v1() {
+    var link_var = document.getElementById("item_redirection_link");
+    if (link_var !== null) {
+        link_var.href = address_gvar + link_var.getAttribute("href");
+    }
+}
+document.addEventListener("DOMContentLoaded", manual_redirect_v1);
+</script>
+"

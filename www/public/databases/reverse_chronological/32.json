@@ -1,0 +1,12 @@
+{
+    "item_name": "File 25",
+    "item_date": "January 13, 2026",
+    "item_date_timestamp": 1768262400,
+    "item_destination": "/uploads/file-25.html",
+    "item_content": "A Document file upload.",
+    "item_content_thumbnail": "/assets/localized/Upload Thumbnail - Document v2 - 400x400.jpg",
+    "item_type": "upload",
+    "item_content_type": "Document",
+    "item_status": "exists",
+    "item_number": "32 of 45"
+}

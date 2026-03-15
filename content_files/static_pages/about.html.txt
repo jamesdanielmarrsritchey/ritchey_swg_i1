@@ -1,0 +1,8 @@
+Name: About
+Description: This contains content for the the file "/www/public/pages/about.html".
+Destination: /pages/about.html
+Content:
+"
+<h2>History</h2>
+<p>We launched our website on February 15, 2026.</p>
+"

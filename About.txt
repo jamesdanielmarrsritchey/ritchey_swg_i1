@@ -1,0 +1,33 @@
+# About
+
+NAME: Ritchey Static Website Generator
+IMPLEMENTATION: 1
+VERSION: 0.1
+RELEASE TYPE: Work In Progress
+LONG IDENTIFIER: Ritchey Static Website Generator i1 v0.1
+SHORT IDENTIFIER: RSWGi1v0.1
+AUTHOR: James Daniel Marrs Ritchey
+
+## Overview
+
+Ritchey Static Website Generator is a static website generator, which builds a website (or website sub-portion) for social media profile, or general use from data supplied by the user in configuration files, and content files.
+
+## Licensing
+
+This project is hereby licensed under the Ritchey Permissive License v19.
+
+## History
+
+Releases:
+- Project started December, 2024.
+- Version 0.1 completed February 22, 2026.
+
+Highlighted Changes:
+- 
+
+## Notes
+
+- The code currently has a major bug that results in problems with search/browse feature.
+- This project uses version numbering where #.# indicates work-in-progress releases, and # indicates finished versions. Work-in-progress releases may not be in a useable state.
+- The application is written in PHP, but the produced website is client-side only code that relies on HTML, CSS, and Javascript. This makes the website more flexible in terms of where it can be hosted, but provides inferior search capabilities.
+- There is some pretty gross looking Javascript under the hood due to how extensively Javascript is needed, the scale of the project, and my limited time to work on it.

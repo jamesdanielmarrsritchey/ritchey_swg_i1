@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="http://localhost/assets/global/default.css">
+<link rel="stylesheet" href="http://localhost/assets/localized/navigation.css">
+<title>Example - Page - Navigation</title>
+<style>
+</style>
+<script src="http://localhost/assets/global/global-variables.js"></script>
+<script src="http://localhost/assets/global/default.js"></script>
+<script src="http://localhost/assets/global/search-browse.js"></script>
+<script src="http://localhost/databases/database-meta.js"></script>
+<script>
+set_global_variables_v1();
+</script>
+</head>
+<body>
+<div class='section_outter no_print' id='header_1_outter'>
+	<div class='section_inner' id='header_1_inner'>
+		<div class='item_holder' id='parent_button_holder'>
+			<a class='item' id='parent_button' href="http://localhost/index.html">Go to Parent Site</a>
+		</div>
+	</div>
+</div>
+<div class='section_outter no_print' id='header_2_outter'>
+	<div class='section_inner' id='header_2_inner'>
+		<div class='item_holder' id='logo_holder'>
+			 
+		</div>
+		<div class='item_holder' id='navigation_holder'>
+			<nav id='navigation'>
+				<a id='navigation_button' href="http://localhost/pages/navigation.html">&#x2630;</a>
+			</nav>
+		</div>
+	</div>
+</div>
+
+<div class='section_outter no_print' id='content_1_outter'>
+	<div class='section_inner' id='content_1_inner'>
+		<div id='navlinks_pages_outter'>
+<div id='navlinks_pages_inner'>
+<h2>Pages</h2>
+<a class='navlinks' href="/index.html">Home</a>
+<!-- Do not list landing page, because index page should be configured to redirect there if a site wishes to use it. -->
+<a class='navlinks' href="/pages/search.html">Search</a>
+<a class='navlinks' href="/pages/browse.html?item_types=status+update">Browse</a>
+<a class='navlinks' href="/pages/about.html">About</a>
+<a class='navlinks' href="/pages/legal.html">Legal</a>
+</div>
+</div>
+<div id='navlinks_meta_outter'>
+<div id='navlinks_meta_inner'>
+<h2>Meta Pages</h2>
+<a class='navlinks' href="/robots.txt">robots.txt</a>
+<a class='navlinks' href="/humans.txt">humans.txt</a>
+<a class='navlinks' href="/sitemap.xml">sitemap.xml</a>
+<a class='navlinks' href="/Hello World.txt">Hello World.txt</a>
+<a class='navlinks' href="/pages/statistics.html">Statistics</a>
+<a class='navlinks' href="/pages/version.html">Version</a>
+</div>
+</div>
+<script>
+window.onload = function(){
+	if (document.referrer.startsWith(location.origin)){
+		document.getElementById("navigation").style.display = 'inline-block';
+		document.getElementById("navigation_button").href = document.referrer;
+		document.getElementById("navigation_button").innerHTML = '&#9166; ';
+	} else {
+		var elem = document.getElementById("navigation");
+		elem.remove();
+	}
+}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", convert_relative_urls_to_absolute_v1(address_gvar));
+</script>
+
+	</div>
+</div>
+<div class='section_outter no_print' id='footer_1_outter'>
+	<div class='section_inner' id='footer_1_inner'>
+		<div class='item_holder' id='top_button_holder'>
+			<button class='item' onclick="scroll_to_top_v1()" id="top_button">&uArr;</button>
+			<script>
+				function scroll_to_top_v1() {
+					document.body.scrollTop = 0;
+					document.documentElement.scrollTop = 0;
+				}
+			</script>
+		</div>
+	</div>
+</div>
+<div class='section_outter' id='footer_2_outter'>
+	<div class='section_inner' id='footer_2_inner'>
+		<div class='item_holder' id='copyright_notice_holder'>
+			<p class='item' id='copyright_notice'><a href="https://laws-lois.justice.gc.ca/eng/acts/C-42/Index.html">Copyright &#169</a> Example P., and others; <a href="https://en.wikipedia.org/wiki/All_rights_reserved">all rights reserved</a>, except where explicitly stated.</p>
+		</div>
+	</div>
+</div>
+<div class='section_outter' id='footer_3_outter'>
+	<div class='section_inner' id='footer_3_inner'>
+		<div class='item_holder' id='footer_links_holder'>
+			<ul class='item' id='footer_links'>
+    			<li class='footer_links_entry'><a href="http://localhost/pages/legal.html#terms_of_service">Terms of Service</a></li>
+    			<li class='footer_links_entry'><a href="http://localhost/pages/legal.html#privacy_policy">Privacy Policy</a></li>
+    			<li class='footer_links_entry'><a href="http://localhost/pages/legal.html#licensing">Licensing</a></li>
+			</ul>	
+		</div>
+	</div>
+</div>
+<div class='section_outter' id='footer_4_outter'>
+	<div class='section_inner' id='footer_4_inner'>
+		<div class='item_holder' id='footer_info_holder'>
+			<p class='item' id='footer_info'>
+    			Example is privately operated. To learn what this means <a href="http://localhost/assets/localized/Privately Operated - Definition v1.txt">click here</a>.
+			</p>	
+		</div>
+	</div>
+</div>
+</body>
+</html>

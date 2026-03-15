@@ -1,0 +1,4 @@
+Name: Parent URL
+Description: This indicates the domain and path of a parent website. The default value is "http://localhost/index.html". A value of "" can also be used, if there is no parent website, which is what most users will likely want.
+Status: 
+Content: http://localhost/index.html

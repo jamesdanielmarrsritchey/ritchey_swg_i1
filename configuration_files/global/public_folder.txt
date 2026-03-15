@@ -1,0 +1,4 @@
+Name: Public Folder
+Description: This indicates the path, within the application root, to the "public" folder. The default value is "/www/public". Another value users may wish to use is "/docs" (Used by GitHub Pages).
+Status: Restricted
+Content: /www/public

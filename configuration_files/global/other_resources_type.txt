@@ -1,0 +1,4 @@
+Name: Other Resources Type
+Description: This indicates the name to use for other resources. Other resources refers to a content type that is meant for housing a custom type of content, so it can searched for separately from posts, pages, links, uploads, and status-updates. The other resources are links, but will be identified separately from regular links. Default value is "other".
+Status: 
+Content: other

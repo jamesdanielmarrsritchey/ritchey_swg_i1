@@ -1,0 +1,7 @@
+Name: Index.css
+Description: This contains content for the the file "/www/public/assets/localized/index.css".
+Destination: /assets/localized/index.css
+Content:
+"
+
+"

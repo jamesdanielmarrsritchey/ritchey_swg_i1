@@ -1,0 +1,18 @@
+Name: Index
+Description: This contains content for the the file "/www/public/index.html".
+Destination: /index.html
+Content:
+"
+<h1>Redirection</h1>
+<div>You should be automatically redirected to the Browse page, before ever seeing this message. However, this can fail if Javascript is disabled in your browser. You might also see this message if the page loaded slowly. Click <a id="item_redirection_link" href="/pages/browse.html?item_types=status+update">here</a> to manually redirect yourself.</div>
+<script>
+// "/pages/landing.html" might be preferred for business website.
+function auto_redirect_v1() {
+    var link_var = document.getElementById("item_redirection_link");
+    if (link_var !== null) {
+        window.location.href = address_gvar + link_var.getAttribute("href");
+    }
+}
+document.addEventListener("DOMContentLoaded", auto_redirect_v1);
+</script>
+"

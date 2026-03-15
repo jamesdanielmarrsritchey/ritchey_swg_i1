@@ -1,0 +1,132 @@
+/* THE CONTENTS OF THIS FILE SLIGHTLY MODIFIED FROM BROWSE.CSS BY COMMENTING SOME THINGS OUT */
+.item_entries {
+	border-width: 3px;
+	border-color: #E6DFDF;
+	border-style: dotted;
+	padding: 15px;
+	margin-top: 15px;
+	border-radius: 5px;
+}
+.item_titles {
+	font-weight: bold;
+	font-size: 26px;
+}
+.item_thumbnails_img {
+	min-width: 300px;
+	max-width: 100%;
+}
+.item_icons_img {
+	max-width: 36px;
+	min-width: 36px;
+}
+.item_descriptions {
+	/* background-color: #ECECEC; */
+	background-color: #F0F0F0;
+	margin-top: 15px;
+	padding: 5px;
+	border-radius: 5px;
+}
+.item_keyword_match_percents_high {
+	background-color: #a1e8ac;
+	color: #058619;
+	display: inline-block;
+	padding: 3px;
+	/* COMMENT OUT FOR SEARCH */
+}
+.item_keyword_match_percents_medium {
+	background-color: #e8e4a1;
+	color: #68630e;
+	display: inline-block;
+	padding: 3px;
+	 /* COMMENT OUT FOR SEARCH */
+}
+.item_keyword_match_percents_low {
+	background-color: #ea8484;
+	color: #951c1c;
+	display: inline-block;
+	padding: 3px;
+	 /* COMMENT OUT FOR SEARCH */
+}
+.item_keyword_match_percents {
+	background-color: #FFFFFF;
+	padding: 3px;
+	display: inline-block;
+	color: #666666;
+	 /* COMMENT OUT FOR SEARCH */
+}
+.item_details_date {
+	color: #000000;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-right-color: #CCCCCC;
+	padding: 3px;
+	padding-left: 0px;
+	display: inline-block;
+}
+.item_details_status {
+	color: #666666;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-right-color: #CCCCCC;
+	padding: 3px;
+	display: inline-block;
+}
+.item_details_type {
+	color: #666666;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-right-color: #CCCCCC;
+	padding: 3px;
+	margin-right: 3px;
+	display: inline-block;
+}
+.item_locations {
+	padding-left: 0px;
+}
+
+#search_browse_secondary_controls {
+	margin-bottom: 5px;
+}
+.sb_secondary_controls_buttons:link {
+	color: #555555; 
+}
+.sb_secondary_controls_buttons {
+	display: inline-block;
+	padding: 5px;
+	margin-right: 2px;
+	background-color: #CCCCCC;     
+	color: #555555;                
+	text-decoration: none;
+	font-family: sans-serif;
+	font-size: 16px;
+	border-radius: 2px;
+	border: 1px solid #bfbfbf;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover and pressed look identical */
+.sb_secondary_controls_buttons:hover,
+.sb_secondary_controls_buttons:active {
+    background-color: #2b2b2b;     
+    color: #cccccc;                
+}
+.sb_secondary_controls_buttons_current {
+	display: inline-block;
+	padding: 5px;
+	margin-right: 2px;
+	background-color: #3A0875;     
+	color: #C9A9EE;                
+	text-decoration: none;
+	font-family: sans-serif;
+	font-size: 16px;
+	border-radius: 2px;
+	border: 1px solid #C9A9EE;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+.sb_secondary_controls_buttons_current:link {
+	color: #C9A9EE;
+}
+.sb_secondary_controls_buttons_current:hover,
+.sb_secondary_controls_buttons_current:active {    
+    color: #C9A9EE;             
+}

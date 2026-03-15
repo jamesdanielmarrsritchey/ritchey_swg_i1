@@ -1,0 +1,509 @@
+Name: Default.js
+Description: This contains content for the the file "/www/public/assets/global/default.js".
+Destination: /assets/global/default.js
+Content:
+"
+// Function 1
+function convert_relative_urls_to_absolute_v1(url_prefix) {
+    var elements = document.querySelectorAll('img[data-url-status="relative"], a[data-url-status="relative"]');
+    for (var i = 0; i < elements.length; i++) {
+        var el = elements[i];
+        if (el.tagName.toLowerCase() === "img") {
+            if (el.src) {
+                el.src = url_prefix + el.getAttribute("src");
+            }
+        } else if (el.tagName.toLowerCase() === "a") {
+            if (el.href) {
+                el.href = url_prefix + el.getAttribute("href");
+            }
+        }
+        el.setAttribute("data-url-status", "absolute");
+    }
+}
+
+// Function 2
+// Custom markup renderer (template -> target div)
+//
+// Usage example:
+//
+// <div id="content_1"></div>
+// <template data-target-div="content_1">
+// # Heading
+//
+// LABEL FOR A STRING: First Last
+// LABEL:
+//
+// - List item
+//     - Sub item
+//     1. Sub number
+//
+// {a link} (https://example.com/1) (image.jpg)(image2.png)
+//
+// "
+// This is a block quote.
+// No markup is processed here: {a link} (x) (image.jpg) # Heading
+// "
+//
+// (
+// This is a block message.
+// No markup is processed here either.
+// )
+//
+// [
+// This is a block styled.
+// It can have {bold} (Bold) text, {italic} (Italic), {u} (Underline), {strike} (Strikethrough)
+// Links still work: {Example} (/path)
+// Inline comments still work: (SOME NOTE 3)
+// But images/videos/headings/lists are NOT processed here: (image.jpg) # no
+// ]
+//
+// // This whole line becomes an HTML comment.
+// </template>
+//
+// <script>
+// document.addEventListener("DOMContentLoaded", function () {
+//     render_all_custom_markup_templates_v1(false); // set true for debug
+// });
+// </script>
+
+function render_all_custom_markup_templates_v1(debug) {
+    var templates = document.querySelectorAll("template[data-target-div]");
+    for (var i = 0; i < templates.length; i += 1) {
+        render_custom_markup_template_v1(templates[i], debug);
+    }
+    return true;
+}
+
+function render_custom_markup_template_v1(template_el, debug) {
+    if (!template_el) return false;
+
+    var target_id = template_el.getAttribute("data-target-div");
+    if (!target_id) return false;
+
+    var div_el = document.getElementById(target_id);
+    if (!div_el) return false;
+
+    // Read raw text safely (not HTML)
+    var raw_text = "";
+    if (template_el.content && template_el.content.textContent !== undefined) {
+        raw_text = template_el.content.textContent;
+    } else {
+        raw_text = template_el.textContent;
+    }
+    if (raw_text === null || raw_text === undefined) raw_text = "";
+    raw_text = String(raw_text).replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+
+    if (debug) {
+        console.log("custom markup raw_text >>>");
+        console.log(raw_text);
+        console.log("<<<");
+    }
+
+    var html = parse_custom_markup_to_html_v1(raw_text);
+
+    if (debug) {
+        console.log("custom markup html >>>");
+        console.log(html);
+        console.log("<<<");
+    }
+
+    div_el.innerHTML = html;
+    return true;
+}
+// Drop-in change: label_for_line now uses two spans:
+// <div class="label_for_line">
+//   <span class="label_text">LABEL</span>
+//   <span class="label_value">value...</span>
+// </div>
+
+function parse_custom_markup_to_html_v1(raw_text) {
+    function escape_html(s) {
+        return String(s)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#39;");
+    }
+
+    function escape_attr(s) {
+        return String(s)
+            .replace(/&/g, "&amp;")
+            .replace(/"/g, "&quot;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+    }
+
+    /* function is_safe_url(url) {
+        if (url === null || url === undefined) return false;
+        var u = String(url).trim();
+        if (u === "") return false;
+
+        var lower = u.toLowerCase();
+
+        if (lower.indexOf("http://") === 0 || lower.indexOf("https://") === 0) return true;
+
+        if (lower.indexOf("javascript:") === 0) return false;
+        if (lower.indexOf("data:") === 0) return false;
+        if (lower.indexOf("vbscript:") === 0) return false;
+
+        return true;
+    } */
+
+function is_safe_url(url) {
+    if (url === null || url === undefined) return false;
+
+    var u = String(url).trim();
+    if (u === "") return false;
+
+    var lower = u.toLowerCase();
+
+    // Block dangerous schemes
+    if (lower.indexOf("javascript:") === 0) return false;
+    if (lower.indexOf("data:") === 0) return false;
+    if (lower.indexOf("vbscript:") === 0) return false;
+
+    // Allow absolute http(s) (case-insensitive)
+    if (lower.indexOf("http://") === 0 || lower.indexOf("https://") === 0) return true;
+
+    // Allow relative forms that actually look like URLs/paths
+    // This prevents style keywords like "Bold" from being treated as "relative URLs".
+    if (
+        u.indexOf("/") === 0 ||     // /path
+        u.indexOf("./") === 0 ||    // ./path
+        u.indexOf("../") === 0 ||   // ../path
+        u.indexOf("?") === 0 ||     // ?q=...
+        u.indexOf("#") === 0        // #anchor
+    ) {
+        return true;
+    }
+
+    // Also allow relative filenames with an extension (page.html, File.JPG, etc.)
+    // This preserves "relative links" while avoiding plain words like "Bold".
+    if (/[.][A-Za-z0-9]{1,8}($|[?#])/g.test(u)) {
+        return true;
+    }
+
+    // Otherwise, reject (prevents Bold/Italic/etc from becoming links)
+    return false;
+}
+
+
+    function get_extension(url) {
+        var u = String(url).split("#")[0].split("?")[0];
+        var dot = u.lastIndexOf(".");
+        if (dot === -1) return "";
+        return u.slice(dot + 1).toLowerCase();
+    }
+
+    function has_at_least_one_letter(s) {
+        return /[A-Z]/.test(s);
+    }
+
+    function is_comment_token(s) {
+        if (!has_at_least_one_letter(s)) return false;
+        if (!/^[A-Z0-9 \-\_\.\,\!\?\:\;\'\"\/\\\+\=\@\#\$\%\&\*\|]+$/.test(s)) return false;
+
+        var lower = s.toLowerCase();
+        if (lower.indexOf("http://") === 0 || lower.indexOf("https://") === 0) return false;
+
+        if (/\.(jpg|jpeg|png|webp|mp4|webm)\b/i.test(lower)) return false;
+
+        return true;
+    }
+
+    function parse_inline_general(escaped_text) {
+        var s = escaped_text;
+
+        s = s.replace(/\{([^{}]+)\}\s*\(([^)\n]+)\)/g, function (m, link_text, link_url) {
+    var u = String(link_url).trim();
+
+    if (!is_safe_url(u)) return m;
+
+    return '<a href="' + escape_attr(u) + '">' + link_text + "</a>";
+});
+
+
+        s = s.replace(/\(([^()\n]+)\)/g, function (m, inner) {
+            var token = String(inner).trim();
+            if (token === "") return m;
+
+            if (is_safe_url(token)) {
+                var ext = get_extension(token);
+                if (ext === "jpg" || ext === "jpeg" || ext === "png" || ext === "webp") {
+                    //return '<img src="' + escape_attr(token) + '" alt="" />';
+                    return '<img class="mu_image" src="' + escape_attr(token) + '" alt="" />';		
+                }
+                if (ext === "mp4" || ext === "webm") {
+                    return '<video src="' + escape_attr(token) + '" controls></video>';
+                }
+            }
+
+            if (is_comment_token(token)) {
+                return '<span class="comment_inline">(' + token + ')</span>';
+            }
+
+            return m;
+        });
+
+        return s;
+    }
+
+    function parse_inline_blockstyled(escaped_text) {
+        var s = escaped_text;
+
+        s = s.replace(/\{([^{}]+)\}\s*\(([^)\n]+)\)/g, function (m, link_text, link_url) {
+    var u = String(link_url).trim();
+
+    if (!is_safe_url(u)) return m;
+
+    return '<a href="' + escape_attr(u) + '">' + link_text + "</a>";
+});
+
+
+        s = s.replace(/\(([^()\n]+)\)/g, function (m, inner) {
+            var token = String(inner).trim();
+            if (token === "") return m;
+
+            if (is_comment_token(token)) {
+                return '<span class="comment_inline">(' + token + ')</span>';
+            }
+
+            return m;
+        });
+
+        s = s.replace(/\{([^{}]+)\}\s*\(([^()\n]+)\)/g, function (m, content_text, style_name) {
+            var style = String(style_name).trim().toLowerCase();
+
+            if (style === "bold") return "<strong>" + content_text + "</strong>";
+            if (style === "italic" || style === "italics") return "<em>" + content_text + "</em>";
+            if (style === "underline" || style === "underlined" || style === "u") return "<u>" + content_text + "</u>";
+            if (style === "strikethrough" || style === "strike" || style === "strikethru") return "<s>" + content_text + "</s>";
+
+            return m;
+        });
+
+        return s;
+    }
+
+    function count_indent_level(line_raw) {
+        var s = String(line_raw);
+        var indent = 0;
+
+        for (var i = 0; i < s.length; i += 1) {
+            var ch = s.charAt(i);
+            if (ch === " ") indent += 1;
+            else if (ch === "\t") indent += 4;
+            else break;
+        }
+
+        return Math.floor(indent / 4);
+    }
+
+    var list_stack = [];
+
+    function close_lists_down_to(level_inclusive) {
+        while (list_stack.length > level_inclusive) {
+            var top = list_stack[list_stack.length - 1];
+            out_html += "</" + top.type + ">\n";
+            list_stack.pop();
+        }
+    }
+
+    function ensure_list_at_level(list_type, level) {
+        var desired_len = level + 1;
+
+        if (list_stack.length > desired_len) {
+            close_lists_down_to(desired_len);
+        }
+
+        if (list_stack.length === desired_len && desired_len > 0) {
+            var top = list_stack[desired_len - 1];
+            if (top.type !== list_type) {
+                close_lists_down_to(desired_len - 1);
+            }
+        }
+
+        while (list_stack.length < desired_len) {
+            out_html += "<" + list_type + ">\n";
+            list_stack.push({ type: list_type });
+        }
+
+        if (list_stack.length === desired_len) {
+            var top2 = list_stack[desired_len - 1];
+            if (top2.type !== list_type) {
+                close_lists_down_to(desired_len - 1);
+                out_html += "<" + list_type + ">\n";
+                list_stack.push({ type: list_type });
+            }
+        }
+    }
+
+    function close_all_lists() {
+        close_lists_down_to(0);
+    }
+
+    function is_label_text(label_part) {
+        return has_at_least_one_letter(label_part);
+    }
+
+    var lines = String(raw_text).split("\n");
+    var out_html = "";
+
+    var mode = "normal";
+    var block_lines = [];
+
+    function flush_block_if_needed() {
+        if (mode === "blockquote") {
+            close_all_lists();
+            var content = escape_html(block_lines.join("\n")).replace(/\n/g, "<br />\n");
+            out_html += '<div class="blockquote">' + content + "</div>\n";
+        } else if (mode === "blockmessage") {
+            close_all_lists();
+            var content2 = escape_html(block_lines.join("\n")).replace(/\n/g, "<br />\n");
+            out_html += '<div class="blockmessage">' + content2 + "</div>\n";
+        } else if (mode === "blockstyled") {
+            close_all_lists();
+            var content3 = escape_html(block_lines.join("\n")).replace(/\n/g, "<br />\n");
+            content3 = parse_inline_blockstyled(content3);
+            out_html += '<div class="blockstyled">' + content3 + "</div>\n";
+        }
+
+        mode = "normal";
+        block_lines = [];
+    }
+
+    for (var i = 0; i < lines.length; i += 1) {
+        var original_line = lines[i];
+        var trimmed = String(original_line).trim();
+
+        if (mode !== "normal") {
+            if (mode === "blockquote" && trimmed === '"') { flush_block_if_needed(); continue; }
+            if (mode === "blockmessage" && trimmed === ")") { flush_block_if_needed(); continue; }
+            if (mode === "blockstyled" && trimmed === "]") { flush_block_if_needed(); continue; }
+
+            block_lines.push(original_line);
+            continue;
+        }
+
+        if (trimmed === '"') { close_all_lists(); mode = "blockquote"; block_lines = []; continue; }
+        if (trimmed === "(") { close_all_lists(); mode = "blockmessage"; block_lines = []; continue; }
+        if (trimmed === "[") { close_all_lists(); mode = "blockstyled"; block_lines = []; continue; }
+
+        if (trimmed === "") {
+            close_all_lists();
+            out_html += "\n";
+            continue;
+        }
+
+        if (String(original_line).indexOf("//") === 0) {
+            close_all_lists();
+            var c = String(original_line).slice(2).replace(/-->/g, "--&gt;");
+            out_html += "<!--" + c + "-->\n";
+            continue;
+        }
+
+        // Labels
+        if (/^[A-Z]/.test(original_line)) {
+            var label_match = original_line.match(/^([^:\n]+):(\s*)(.*)$/);
+            if (label_match) {
+                var label_left = label_match[1];
+                var label_right = label_match[3];
+
+                if (is_label_text(label_left)) {
+                    close_all_lists();
+
+                    if (String(label_right).trim() === "") {
+                        out_html += '<div class="label_for_below">'
+                            + escape_html(label_left)
+                            + ":</div>\n";
+                        continue;
+                    } else {
+                        var value_escaped = parse_inline_general(escape_html(label_right));
+
+                        out_html += '<div class="label_for_line">'
+                            + '<span class="label_text">' + escape_html(label_left) + ":</span>"
+                            + '<span class="label_value">' + value_escaped + "</span>"
+                            + "</div>\n";
+                        continue;
+                    }
+                }
+            }
+        }
+
+        // Headings
+        var heading_match = String(original_line).match(/^\s*(#{1,6})\s+(.+)$/);
+        if (heading_match) {
+            close_all_lists();
+            var level = heading_match[1].length;
+            var heading_text = parse_inline_general(escape_html(heading_match[2]));
+            out_html += "<h" + level + ">" + heading_text + "</h" + level + ">\n";
+            continue;
+        }
+
+        // Lists (nested)
+        var ul_match = String(original_line).match(/^(\s*)-\s+(.+)$/);
+        if (ul_match) {
+            var ul_level = count_indent_level(ul_match[1]);
+            ensure_list_at_level("ul", ul_level);
+            out_html += "<li>" + parse_inline_general(escape_html(ul_match[2])) + "</li>\n";
+            continue;
+        }
+
+        var ol_match = String(original_line).match(/^(\s*)\d+\.\s+(.+)$/);
+        if (ol_match) {
+            var ol_level = count_indent_level(ol_match[1]);
+            ensure_list_at_level("ol", ol_level);
+            out_html += "<li>" + parse_inline_general(escape_html(ol_match[2])) + "</li>\n";
+            continue;
+        }
+
+        close_all_lists();
+        out_html += "<p>" + parse_inline_general(escape_html(original_line)) + "</p>\n";
+    }
+
+    if (mode !== "normal") {
+        flush_block_if_needed();
+    }
+
+    close_all_lists();
+    return out_html;
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Proves the initializer is running
+    console.log("Custom markup init ran (external JS)");
+
+    if (typeof render_all_custom_markup_templates_v1 === "function") {
+        render_all_custom_markup_templates_v1(true);
+        return;
+    }
+
+    // Fallback if you only included per-template render
+    if (typeof render_custom_markup_template_v1 === "function") {
+        var templates = document.querySelectorAll("template[data-target-div]");
+        for (var i = 0; i < templates.length; i += 1) {
+            render_custom_markup_template_v1(templates[i], true);
+        }
+        return;
+    }
+
+    console.log("No renderer function found on window scope.");
+});
+
+// Capitalize Words
+function capitalize_words_v2(text_var) {
+	var text_var = text_var.toLowerCase();
+	var words_arr = text_var.split(' ');
+	var i_var = 0;
+	while (i_var < words_arr.length) {
+		if (words_arr[i_var].length > 0) {
+			words_arr[i_var] =
+				words_arr[i_var].charAt(0).toUpperCase() + words_arr[i_var].slice(1);
+		}
+		i_var++;
+	}
+	return words_arr.join(' ');
+}
+"

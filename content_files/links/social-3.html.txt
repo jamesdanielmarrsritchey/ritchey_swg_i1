@@ -1,0 +1,4 @@
+Name: Social 3
+Destination: /links/social-3.html
+Icon: /assets/localized/Default Link Icon - 400x400.jpg
+Content: https://example.com/3

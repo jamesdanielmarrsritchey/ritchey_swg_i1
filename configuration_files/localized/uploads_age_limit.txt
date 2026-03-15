@@ -1,0 +1,5 @@
+Name: Uploads Age Limit
+Description: Specifies an age limit (in days) for uploads. Any uploads older than this, won't be copied to the uploads directory, though the site will still list them. Empty value disables this feature.
+Used By: /includes/tasks/3_copy_uploads_to_website.php
+Status: Restricted
+Content: 

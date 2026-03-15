@@ -1,0 +1,5 @@
+Name: Uploads Quantity Limit
+Description: Specifies a quantity limit for uploads. This is the max number of eligible uploads copied to the uploads directory, though the site will still list them. Empty value disables this feature.
+Used By: /includes/tasks/3_copy_uploads_to_website.php
+Status: Restricted
+Content: 

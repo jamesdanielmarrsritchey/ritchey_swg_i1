@@ -1,0 +1,11 @@
+{
+    "item_name": "Status Update 3",
+    "item_date": "October 22, 2025",
+    "item_date_timestamp": 1761091200,
+    "item_destination": "/status-updates/3.html",
+    "item_content": "Hello World!\n\nAgain!\n\nAgain?\n",
+    "item_content_thumbnail": "/assets/localized/Status Update Icon v3 - 400x400.jpg",
+    "item_type": "status update",
+    "item_status": "exists",
+    "item_number": "42 of 45"
+}

@@ -1,0 +1,4 @@
+Name: Connection Type
+Description: Indicates the protocol declared at the start of the urls. Valid values are "http", and  "https". The default is "http" since it's useful for testing, but "https" is recommended for public sites.
+Status: 
+Content: http

@@ -1,0 +1,192 @@
+Name: Search
+Description: This contains content for the the file "/www/public/pages/search.html".
+Destination: /pages/search.html
+Content:
+"
+<!-- THE CONTENTS OF THIS FILE ARE JUST COPIED FROM BROWSE.HTML. -->
+<div id='search_browse_holder'>
+<div id='search_browse_main_controls'>
+<form id='search_browse_types'>
+	<div>Types</div>
+	<!-- Item Types (Page, Post, Link, Status Update, Upload, Other -->
+	<input type="checkbox" id="sb_it_option_1" name="sb_it_option_1" value="page">
+	<label for="sb_it_option_1"> Page</label><br>
+
+	<input type="checkbox" id="sb_it_option_2" name="sb_it_option_2" value="post">
+	<label for="sb_it_option_2"> Post</label><br>
+
+	<input type="checkbox" id="sb_it_option_3" name="sb_it_option_3" value="link">
+	<label for="sb_it_option_3"> Link</label><br>
+
+	<input type="checkbox" id="sb_it_option_4" name="sb_it_option_4" value="status update">
+	<label for="sb_it_option_4"> Status Update</label><br>
+
+	<input type="checkbox" id="sb_it_option_5" name="sb_it_option_5" value="other">
+	<label for="sb_it_option_5" id='sb_it_option_5_label'> Other Resources</label><br>
+
+	<input type="checkbox" id="sb_it_option_6" name="sb_it_option_6" value="upload">
+	<label for="sb_it_option_6" id='sb_it_option_6_label'> Upload</label><br>
+</form>
+<form id='search_browse_order'>
+	<!-- Item Order (Chronological, Reverse Chronological) -->
+	<div>Order</div>
+	<input type="radio" id="sb_it_option_7" name="sb_it_option_g1" value="reverse chronological">
+	<label for="sb_it_option_7"> Newest First</label><br>
+	
+	<input type="radio" id="sb_it_option_8" name="sb_it_option_g1" value="chronological">
+	<label for="sb_it_option_8"> Oldest First</label><br>
+</form>
+<form id='search_browse_status'>
+	<!-- Item Status (Exists, Removed) -->
+	<div>Status</div>
+	<input type="checkbox" id="sb_it_option_9" name="sb_it_option_9" value="exists">
+	<label for="sb_it_option_9"> Exists</label><br>
+
+	<input type="checkbox" id="sb_it_option_10" name="sb_it_option_10" value="removed">
+	<label for="sb_it_option_10"> Removed</label><br>
+</form>
+<form id='search_browse_keywords'>
+<!-- Item Keywords. N/A in browse mode. -->
+	<div>Keywords</div>
+	<input type="text" id="sb_it_option_11" value=""><br><br>
+</form>
+<form id='search_browse_keywords_match'>
+<!-- Item Keywords. N/A in browse mode. -->
+	<div>Keyword Match Percent</div>
+	<input type="range" id="sb_km_option_1" name="sb_km_option_1" min="0" max="100" step="1" value="70">
+<span id="sb_km_display_1"></span><br><br>
+<script>
+document.getElementById('sb_km_option_1').oninput = function () {
+  document.getElementById('sb_km_display_1').textContent = this.value + '%';
+};
+</script>
+<button id='sb_button' type="button">Submit</button>
+</form>
+</div>
+
+<div id='search_browse_secondary_controls'>
+<!-- Javascript will update the buttons. -->
+<a id='sb_posts_button' class='sb_secondary_controls_buttons' href=''>Posts</a>
+<a id='sb_status_updates_button' class='sb_secondary_controls_buttons' href=''>Status Updates</a>
+<a id='sb_links_button' class='sb_secondary_controls_buttons' href=''>Links</a>
+<a id='sb_uploads_button' class='sb_secondary_controls_buttons' href=''>Uploads</a>
+<a id='sb_other_resources_button' class='sb_secondary_controls_buttons' href=''>Other Resources</a>
+</div>
+
+<div id='search_browse_results'></div>
+
+<div id='search_browse_navigation_controls'>
+<!-- Javascript will update the previous/next buttons URLs. -->
+<a id='sb_previous_button' class='sb_navigation_buttons' href=''>Previous</a>
+<a id='sb_next_button' class='sb_navigation_buttons' href=''>Next</a>
+</div>
+
+<script>
+set_default_values_v1();
+
+// Update the label for other resources to the one set in global variables
+function capitalize_words_v1(text_var) {
+	var text_var = text_var.toLowerCase();
+	var words_arr = text_var.split(' ');
+	var i_var = 0;
+	while (i_var < words_arr.length) {
+		if (words_arr[i_var].length > 0) {
+			words_arr[i_var] =
+				words_arr[i_var].charAt(0).toUpperCase() + words_arr[i_var].slice(1);
+		}
+		i_var++;
+	}
+	return words_arr.join(' ');
+}
+
+var sb_it_option_5_label_var = document.getElementById('sb_it_option_5_label');
+sb_it_option_5_label.textContent = ' ' + capitalize_words_v1(other_resources_type_gvar);
+
+var sb_other_resources_button_ele = document.getElementById('sb_other_resources_button');
+sb_other_resources_button.textContent = ' ' + capitalize_words_v1(other_resources_type_gvar);
+
+// Initialize database array
+database_items_garr = [''];
+reset_results_gvar = true;
+
+// Detect search or browse mode, and apply defaults for modes. This only works when no parameters are in the URL.
+var path_gvar = window.location.pathname;
+var file_name_gvar = path_gvar.substring(path_gvar.lastIndexOf('/') + 1);
+if (file_name_gvar === 'browse.html'){
+	set_default_browse_values_v1();
+	get_parameters_v1(); // Needed so I can still access search mode from browse.html for testing.
+	show_hide_main_controls_v1();
+	update_secondary_controls_v1();
+	show_hide_secondary_controls_v1();
+	set_active_secondary_controls_tab_v1();
+} else if (file_name_gvar === 'search.html'){
+	set_default_search_values_v1();
+	show_hide_main_controls_v1();
+	show_hide_secondary_controls_v1();
+} else {
+	// Leave defaults
+	
+}
+
+// Update variables, and inputs based on parameters
+get_parameters_v1();
+set_input_values_v1();
+
+// Configure submit button to update variables based on inputs
+var sb_button_el = document.getElementById('sb_button');
+sb_button_el.addEventListener('click', get_inputs_v1);
+
+// Configure submit button to update url
+var sb_button_el = document.getElementById('sb_button');
+sb_button_el.addEventListener('click', set_url_parameters_v1);
+
+// Configure submit button to perform search
+var sb_button_el = document.getElementById('sb_button');
+sb_button_el.addEventListener('click', get_database_items_v1);
+
+// Configure submit button to create HTML entries for items
+var sb_button_el = document.getElementById('sb_button');
+sb_button_el.addEventListener('click', create_html_entries_v1);
+function reset_results_v1(){
+	location.reload();
+}
+sb_button_el.addEventListener('click', reset_results_v1);
+
+// Create database and HTML entries on page load, or when available.
+window.onload = function () {
+    var interval_var = setInterval(function () {
+        var target_div_var = document.getElementById('search_browse_results');
+	get_database_items_v1();
+	create_html_entries_v1();
+	show_hide_navigation_buttons_v1();
+	set_active_secondary_controls_tab_v1();
+        if (!target_div_var) {
+            clearInterval(interval_var);
+            return;
+        }
+
+	if (database_items_garr.length == 0){
+		reset_results_gvar = false;
+		clearInterval(interval_var);
+	}
+
+        if (target_div_var.innerHTML.trim() !== '') {
+            console.log('Div is filled. Stopping checks.');
+            clearInterval(interval_var);
+        }
+    }, 100);
+};
+
+// Configure submit button to update prev/next button
+var sb_button_el = document.getElementById('sb_button');
+sb_button_el.addEventListener('click', show_hide_navigation_buttons_v1);
+
+// Show/Hide main controls (Done earlier)
+
+// Show/Hide secondary controls (Done earlier)
+
+// Update secondary controls (Done earlier)
+
+</script>
+</div>
+"
