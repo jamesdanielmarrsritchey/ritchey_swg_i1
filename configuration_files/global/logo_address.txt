@@ -1,4 +1,0 @@
-Name: Logo Address
-Description: This indicates the image file to use for the logo relative to the site address (e.g., "/assets/logo.jpg"). The default value is "/assets/global/Default Logo v3 - 400x400.jpg".
-Status: 
-Content: /assets/global/Default Logo v3 - 400x400.jpg

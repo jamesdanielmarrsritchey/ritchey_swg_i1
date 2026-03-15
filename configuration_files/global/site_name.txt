@@ -1,4 +1,0 @@
-Name: Site Name
-Description: This indicates the name of the website (e.g., "Example"). Default value is "Example".
-Status: 
-Content: Example

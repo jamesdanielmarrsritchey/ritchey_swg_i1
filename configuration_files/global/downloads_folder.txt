@@ -1,4 +1,0 @@
-Name: Downloads Folder
-Description: This indicates the path, within the application root, to the downloads folder. The default value is "/www/public/downloads". A different value can be used to transfer downloads elsewhere, for hosting under a seperate domain (e.g. CDN).
-Status: Restricted
-Content: /www/public/downloads

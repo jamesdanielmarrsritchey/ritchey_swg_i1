@@ -1,4 +1,0 @@
-Name: Domain
-Description: This indicates the domain name of the website (e.g., "example.com"). Default value is "localhost".
-Status: 
-Content: localhost

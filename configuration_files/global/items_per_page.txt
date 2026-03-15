@@ -1,4 +1,0 @@
-Name: Items Per Page
-Description: This indicates how many items should be displayed per list when pagenating. Default value is "12".
-Status: 
-Content: 12

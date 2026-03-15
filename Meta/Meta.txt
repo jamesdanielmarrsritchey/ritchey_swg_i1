@@ -1,0 +1,9 @@
+# Meta
+
+NAME: Ritchey Static Website Generator
+IMPLEMENTATION: 1
+VERSION: 1
+RELEASE TYPE: Stable
+LONG IDENTIFIER: Ritchey Static Website Generator i1 v1
+SHORT IDENTIFIER: RSWGi1v1
+AUTHOR: James Daniel Marrs Ritchey

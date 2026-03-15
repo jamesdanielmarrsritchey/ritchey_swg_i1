@@ -1,4 +1,0 @@
-Name: Other Resource 2
-Destination: /other-resources/resource-2.html
-Date Created: January 1, 2026
-Content: https://example.com/2

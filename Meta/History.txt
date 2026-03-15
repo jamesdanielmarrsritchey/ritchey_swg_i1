@@ -1,0 +1,11 @@
+# History
+
+TIMELINE:
+- Project started December, 2024.
+- Version 0.1 completed February 22, 2026.
+- Version 1 completed March 15, 2026.
+
+HIGHLIGHTED CHANGES:
+- In version 0.1 the website used Javascript to create entries for the search, and browse pages on-the-fly. In version 1, the website stores all entries in HTML pages, and merely uses Javascript to decide when to display them.
+- Version 1 added support for shifting, and inverting colours defined in CSS content inputs.
+- Version 1 switched from using a single sitemap.xml file to using numbered sitemap files and a sitemap index file.

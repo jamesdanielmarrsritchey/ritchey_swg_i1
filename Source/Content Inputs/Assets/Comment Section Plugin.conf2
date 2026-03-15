@@ -1,0 +1,8 @@
+Name: Comment Section Plugin
+Description: Paste in code for third-party comment section plugin. Default value is "" which disables this feature.
+Notes: No destination is needed, as this is not used to generate a file.
+Destination: 
+Content:
+"
+<!-- Comments Plugin -->
+"

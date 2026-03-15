@@ -1,0 +1,15 @@
+Name: Humans
+Description: Specifies custom values to be added to "/www/public/humans.txt" in addition to the auto-generate values. The conf2 extension indicates it is processed seperate from other configuration files in this folder by the system.
+Destination: /humans.txt
+Content:
+"
+/* TEAM */
+$role: $name
+Site: $url
+Location: $town, $country
+
+/* THANKS */
+$role: $name
+Site: $url
+Location: $town, $country
+"

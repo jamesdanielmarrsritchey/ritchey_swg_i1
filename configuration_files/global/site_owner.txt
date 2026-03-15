@@ -1,4 +1,0 @@
-Name: Site Owner
-Description: This indicates the name of the owner of the website (e.g., "Example Inc."). Default value is "Example P.".
-Status: 
-Content: Example P.

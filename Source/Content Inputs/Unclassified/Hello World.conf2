@@ -1,0 +1,7 @@
+Name: Hello World
+Description: This contains content for the "/www/public/Hello World.txt" file. Default value is "Hello World!". If empty, a hello world message will be generated in a random language. The conf2 extension indicates it is processed seperate from other configuration files in this folder by the system.
+Destination: /Hello World.txt
+Content:
+"
+Hello World!
+"

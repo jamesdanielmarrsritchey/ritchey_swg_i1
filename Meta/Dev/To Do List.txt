@@ -1,0 +1,18 @@
+# To Do List
+
+HIGH PRIORITY:
+- Switch search/browse method back to async function. Consider using HTML includes, or JSON. Prev/Next buttons should reload the page with a different sb_start value (last item + 1, or first item - page size). Search button, or browse tabs should reload page with sb_start value at 1.
+
+MEDIUM PRIORITY:
+- Add theme support by using numbers in CSS files to indicate a theme, and a configuration file to specify the number of the current theme.
+- Explicitly specify more of the colours within the default themes so that inversion, and shifting colours works better. Currently some colours aren't shifted, or inverted, because they aren't defined (e.g., some fonts).
+- Create a bash script which automatically generates thumbnails for image, and video uploads.
+
+LOW PRIORITY:
+- Add manual tag support, and auto tag support. The auto tag would be a PHP function which searches the name of each entry, and checks to see if any of those terms are in a list of tags and subtags, and if so, assigns those tags.
+- Add javascript support for converting file preview text that has markup to HTML. The javascript doesn't have to perform the conversion. It can be pre-written into the page using PHP, and Javascript just decides which version to display. "Enhanced View (Any Ritchey Markup Language v4 markup will be interpretted visually)".
+- Remove unused dependencies, and unused custom dependencies from the project. At the very least, move them to the resources folder.
+- Replace lingering legacy UUIDs in PHP scripts. 
+- Update all custom dependencies to use current naming scheme.
+- Add support for custom checksum type.
+- Add support for audio file uploads that do previews to display a thumbnail if it exists, as cover art.

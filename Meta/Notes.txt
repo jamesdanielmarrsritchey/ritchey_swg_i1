@@ -1,0 +1,3 @@
+# Notes
+
+- The application is written in PHP, but the produced website is client-side only code, which relies on HTML, CSS, and Javascript. So, PHP is required to generate websites, but not to run them.

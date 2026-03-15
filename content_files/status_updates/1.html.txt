@@ -1,8 +1,0 @@
-Name: Status Update 1
-Date Created: March 18, 2025
-Date Published: March 18, 2025
-Destination: /status-updates/1.html
-Content:
-"
-Hello World!
-"

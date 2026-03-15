@@ -1,1 +1,0 @@
-database_size_gvar = '45';

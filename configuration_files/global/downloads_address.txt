@@ -1,4 +1,0 @@
-Name: Downloads Address
-Description: This indicates the address for downloads (e.g., "example.com"). Default value is "" which uses the downloads folder in the public directory. Alternativly the user may specifiy an external address if downloads are hosted elsewhere (e.g., http://localhost2/downloads").
-Status: 
-Content: 

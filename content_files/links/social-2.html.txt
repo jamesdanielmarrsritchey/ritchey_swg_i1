@@ -1,4 +1,0 @@
-Name: Social 2
-Destination: /links/social-2.html
-Icon: /assets/localized/Default Link Icon - 400x400.jpg
-Content: https://example.com/2

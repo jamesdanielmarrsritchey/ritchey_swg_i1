@@ -1,0 +1,8 @@
+Name: Custom Operation Type
+Description: States the type of operation the website is. Only activated if the Operation Type configuration file is set to "Custom". Default value is "This is a temporary website. It may disappear without warning!".
+Notes: No destination is needed, as this is not used to generate a file.
+Destination: 
+Content:
+"
+This is a temporary website. It may disappear without warning!
+"

@@ -1,4 +1,0 @@
-Name: Operation Type
-Description: A statement describing the type of operation the website is (e.g., privately operated, registered business, registered non-profit, governmental organization, etc). The default value is "privately operated". Supported values include "" (disables features using this information), a custom text statement, or "privately operated".
-Status: 
-Content: privately operated

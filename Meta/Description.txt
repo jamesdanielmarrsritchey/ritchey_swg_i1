@@ -1,0 +1,3 @@
+# Description
+
+Ritchey Static Website Generator is a static website generator, which builds a website (or website sub-portion) for use as a social media profile, personal website, or general website from data supplied by the user in configuration files, and content input files.
