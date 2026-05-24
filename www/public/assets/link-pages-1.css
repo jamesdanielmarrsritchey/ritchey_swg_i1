@@ -1,0 +1,24 @@
+.link_holder {
+	color: #E6E1E5;
+}
+
+.link_holder .link_content {
+	color: #E6E1E5;
+}
+
+.link_holder a:link {
+	color: #9ECFFF;
+}
+
+.link_holder a:visited {
+	color: #D1B3FF;
+}
+
+.link_holder a:hover {
+	color: #D6ECFF;
+}
+
+.link_holder a:active {
+	color: #FFFFFF;
+}
+

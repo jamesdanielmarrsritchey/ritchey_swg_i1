@@ -195,12 +195,18 @@ $var_c836c568_page_comments_1_str = <<<HEREDOC
 HEREDOC;
 }
 ### Define full page
+if (is_int($var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['css_id']) === TRUE){
+	$var_c836c568_css_theme_global_str = "<link rel=\"stylesheet\" href=\"{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['url']}/assets/global-{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['css_id']}.css\">";
+} else {
+	$var_c836c568_css_theme_global_str = '<!-- No CSS ID Provided. Using default theme. -->';
+}
 $var_c836c568_page_html_layout_str = <<<HEREDOC
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['url']}/assets/global.css">
+{$var_c836c568_css_theme_global_str}
 {$var_c836c568_item_type_css_str}
 {$var_c836c568_item_css_str}
 <title>{$var_c836c568_page_title_str}</title>
@@ -251,7 +257,7 @@ document.addEventListener("DOMContentLoaded", function () {
     			<li class='footer_links_entry'><a href="{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['url']}/regular-pages/legal.html#terms_of_service">Terms of Service</a></li>
     			<li class='footer_links_entry'><a href="{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['url']}/regular-pages/legal.html#privacy_policy">Privacy Policy</a></li>
     			<li class='footer_links_entry'><a href="{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['url']}/regular-pages/legal.html#licensing">Licensing</a></li>
-    			<li class='footer_links_entry'><a href="{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['url']}/widget-pages/supported-systems.html">Supported Systems</a></li>
+    			<!-- <li class='footer_links_entry'><a href="{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['url']}/widget-pages/supported-systems.html">Supported Systems</a></li> -->
 			</ul>	
 		</div>
 	</div>

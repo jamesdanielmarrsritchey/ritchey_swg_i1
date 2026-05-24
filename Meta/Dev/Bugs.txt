@@ -1,3 +1,3 @@
 # Bugs
 
-- 
+- The code for filling the keywords and kmt inputs with value in parameter currently causes duplication if the browser re-populates that field for the user. This happens when the current page is refreshed.

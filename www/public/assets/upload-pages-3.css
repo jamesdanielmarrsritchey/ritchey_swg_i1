@@ -1,0 +1,18 @@
+.item_previews_text {
+	background-color: #F1F6F8;
+	color: #26343D;
+}
+
+.item_download_link_holder {
+	color: #26343D;
+}
+
+.item_status_message {
+	color: #A04F55;
+}
+
+.item_previews_audio,
+.item_previews_video {
+	background-color: #FFFFFF;
+	color: #26343D;
+}

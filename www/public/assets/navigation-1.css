@@ -1,0 +1,35 @@
+h2 {
+	color: #F1EAF0;
+}
+
+.navlinks {
+	border-color: #79BFFF;
+	color: #B7DDFF;
+}
+
+.navlinks:link {
+	background-color: #14283A;
+	color: #B7DDFF;
+	border-color: #4C8FCB;
+}
+
+@media only screen and (orientation: landscape) {
+	.navlinks:link {
+		color: #B7DDFF;
+	}
+}
+
+.navlinks:visited {
+	color: #B7DDFF;
+}
+
+.navlinks:hover {
+	color: #E1F1FF;
+	border-color: #A8D6FF;
+	background-color: #1B3852;
+}
+
+.navlinks:active {
+	color: #FFFFFF;
+}
+

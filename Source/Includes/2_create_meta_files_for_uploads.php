@@ -40,6 +40,7 @@ foreach ($var_ed07b65e_files_arr as &$var_ea1cebfe_item_str){
 		$var_5b92a49f_value_arr[] = "Date Uploaded: {$var_01759e6b_date_uploaded_arr['iso_8601_2000_extended_format']}" . PHP_EOL;
 		// Checksums
 		$var_5b92a49f_value_arr[] = "SHA3-256: " . hash_file('sha3-256', $var_ea1cebfe_item_str) . PHP_EOL;
+		$var_5b92a49f_value_arr[] = "SHA-512: " . hash_file('sha512', $var_ea1cebfe_item_str) . PHP_EOL;
 		$var_5b92a49f_value_arr[] = "SHA-256: " . hash_file('sha256', $var_ea1cebfe_item_str) . PHP_EOL;
 		$var_5b92a49f_value_arr[] = "MD5: " . hash_file('md5', $var_ea1cebfe_item_str) . PHP_EOL;
 		$var_5b92a49f_value_arr[] = "SHA-1: " . hash_file('sha1', $var_ea1cebfe_item_str) . PHP_EOL;

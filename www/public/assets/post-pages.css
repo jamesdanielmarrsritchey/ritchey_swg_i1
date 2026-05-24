@@ -1,0 +1,19 @@
+.mu_image_content {
+	max-width: 100%;
+	min-width: 100%;
+}
+.mu_page_meta {
+	display: none;
+}
+.mu_h2_content {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.mu_label_text {
+	font-weight: bold;
+}
+.mu_label_end {
+	font-weight: bold;
+}
+
+

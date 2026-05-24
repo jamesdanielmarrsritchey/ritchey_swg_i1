@@ -23,7 +23,6 @@ $var_64e3d9eb99ff4cfeac052d9f2e3eb71c_directories_arr[] = "{$var_114285e6616f4a0
 $var_64e3d9eb99ff4cfeac052d9f2e3eb71c_directories_arr[] = "{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['public_folder_path']}";
 $var_64e3d9eb99ff4cfeac052d9f2e3eb71c_directories_arr[] = "{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['downloads_folder_path']}";
 $var_64e3d9eb99ff4cfeac052d9f2e3eb71c_directories_arr[] = "{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['public_folder_path']}/assets";
-//$var_64e3d9eb99ff4cfeac052d9f2e3eb71c_directories_arr[] = "{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['public_folder_path']}/databases"; // Not used by this project.
 $var_64e3d9eb99ff4cfeac052d9f2e3eb71c_directories_arr[] = "{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['public_folder_path']}/navigation-pages";
 $var_64e3d9eb99ff4cfeac052d9f2e3eb71c_directories_arr[] = "{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['public_folder_path']}/regular-pages";
 $var_64e3d9eb99ff4cfeac052d9f2e3eb71c_directories_arr[] = "{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['public_folder_path']}/post-pages";
@@ -36,6 +35,9 @@ $var_64e3d9eb99ff4cfeac052d9f2e3eb71c_directories_arr[] = "{$var_114285e6616f4a0
 $var_64e3d9eb99ff4cfeac052d9f2e3eb71c_directories_arr[] = "{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['public_folder_path']}/widget-pages/browse-reverse-chronological";
 $var_64e3d9eb99ff4cfeac052d9f2e3eb71c_directories_arr[] = "{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['public_folder_path']}/widget-pages/search-chronological";
 $var_64e3d9eb99ff4cfeac052d9f2e3eb71c_directories_arr[] = "{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['public_folder_path']}/widget-pages/search-reverse-chronological";
+$var_64e3d9eb99ff4cfeac052d9f2e3eb71c_directories_arr[] = "{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['public_folder_path']}/databases";
+$var_64e3d9eb99ff4cfeac052d9f2e3eb71c_directories_arr[] = "{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['public_folder_path']}/databases/sb-chronological";
+$var_64e3d9eb99ff4cfeac052d9f2e3eb71c_directories_arr[] = "{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['public_folder_path']}/databases/sb-rc";
 foreach ($var_64e3d9eb99ff4cfeac052d9f2e3eb71c_directories_arr as &$var_464de0b7b2ce422db96b6a46fde5badd_item_str){
 	if (@is_dir($var_464de0b7b2ce422db96b6a46fde5badd_item_str) === TRUE){
 		// Do nothing

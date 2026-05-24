@@ -57,6 +57,12 @@ if (is_numeric($var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_a
 } else {
 	$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['css_colour_inversion'] = '';
 }
+// Convert CSS ID to number
+if (is_numeric($var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['css_id']) === TRUE){
+	$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['css_id'] = intval(trim($var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['css_id']));
+} else {
+	$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['css_id'] = '';
+}
 ## Cleanup
 //goto goto_500bd10f47134a31b3ba5826b7bf4017_cleaup;
 goto_500bd10f47134a31b3ba5826b7bf4017_cleaup:

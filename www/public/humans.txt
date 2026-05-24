@@ -1,0 +1,13 @@
+/* TEAM */
+$role: $name
+Site: $url
+Location: $town, $country
+
+/* THANKS */
+$role: $name
+Site: $url
+Location: $town, $country
+
+/* SITE */
+Last update: 2026/05/24
+Standards: HTML5, CSS3, Javascript

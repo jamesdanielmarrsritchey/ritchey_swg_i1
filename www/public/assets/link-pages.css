@@ -1,0 +1,14 @@
+.link_holder {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+.link_holder .link_content {
+	margin-top: 0px;
+}
+.link_holder a {
+	
+}
+.link_holder .link_icon {
+	
+}

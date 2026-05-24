@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="http://localhost/assets/global.css">
+<!-- No CSS ID Provided. Using default theme. -->
+
+
+<title>Example Website - Widget Page - Supported Systems</title>
+<style>
+</style>
+<script src="http://localhost/assets/global.js"></script>
+<script src="http://localhost/assets/global-variables.js"></script>
+
+
+<script>
+//# Task
+//## Convert relative URLs to full ones. This is used by the user on content from content inputs, if the relative-url data attribute is present
+document.addEventListener("DOMContentLoaded", function () {
+	fun_c82d4f19_convert_relative_urls_to_full_urls_i2_v1(var_da1cdfc8_url_gstr);
+});
+</script>
+</head>
+<body>
+<div class='section_outter no_print' id='header_1_outter'>
+	<div class='section_inner' id='header_1_inner'>
+		<div class='item_holder' id='parent_button_holder'>
+			<a class='item' id='parent_button' href="http://localhost/index.html">Go to Parent Site</a>
+		</div>
+	</div>
+</div>
+<div class='section_outter no_print' id='header_2_outter'>
+	<div class='section_inner' id='header_2_inner'>
+		<div class='item_holder' id='logo_holder'>
+			 <a href="http://localhost"><img id='logo' src="http://localhost/assets/Logo v3 - 400x400.jpg" alt="Logo"></a>
+		</div>
+		<div class='item_holder' id='navigation_holder'>
+			<nav id='navigation'>
+				<a id='navigation_button' href="http://localhost/navigation-pages/navigation.html">&#x2630;</a>
+			</nav>
+		</div>
+	</div>
+</div>
+
+<div class='section_outter no_print' id='content_1_outter'>
+	<div class='section_inner' id='content_1_inner'>
+		<h1 class='headings_1'>Supported Systems</h1>
+		<div class='dates_holder'></div>
+		<div class='item_content'><div class='supported_systems_holder'>
+<p>This website is designed to hopefully work in a variety of browsers, but only officially supports <a href="https://www.firefox.com">Mozilla Firefox</a>, <a href="https://www.chromium.org/getting-involved/download-chromium/">Chromium</a>, and <a href="https://www.google.com/chrome">Google Chrome</a>. Compatibility with Mozilla Firefox is prioritized. We've detected (via Javascript) that your browser <span id='system_status'>?</span> supported. Basic information about your system, including your web browser, is listed below, as determined using client-side scripting, if you're not sure which browser you're using.</p>
+
+<div class='visitor_webbrowser'>
+<span class="item_label" id='visitor_webbrowser_label'>Web Browser:</span><span  class="item_value" id='visitor_webbrowser_value'>?</span>
+</div>
+
+<div class='visitor_platform'>
+<span class="item_label" id='visitor_platform_label'>Platform:</span><span  class="item_value" id='visitor_platform_value'>?</span>
+</div>
+
+<div class='visitor_language'>
+<span class="item_label" id='visitor_language_label'>Language:</span><span  class="item_value" id='visitor_language_value'>?</span>
+</div>
+
+<div class='visitor_screen_size'>
+<span class="item_label" id='visitor_screen_size_label'>Screen Size:</span><span  class="item_value" id='visitor_screen_size_value'>?</span>
+</div>
+
+<div class='visitor_window_size'>
+<span class="item_label" id='visitor_window_size_label'>Window Size:</span><span  class="item_value" id='visitor_window_size_value'>?</span>
+</div>
+
+<div class='visitor_timezone'>
+<span class="item_label" id='visitor_timezone_label'>Timezone:</span><span  class="item_value" id='visitor_timezone_value'>?</span>
+</div>
+</div>
+<script>
+// Get visitor details
+function fun_a9f3c2d1_detect_visitor_environment_i1_v1() {
+
+    var var_b71e2a4c_user_agent_str = navigator.userAgent;
+    var var_c82d3f5e_browser_name_str = "Unknown";
+
+    if (var_b71e2a4c_user_agent_str.indexOf("Firefox") !== -1) {
+        var_c82d3f5e_browser_name_str = "Firefox";
+    } else if (var_b71e2a4c_user_agent_str.indexOf("Edg") !== -1) {
+        var_c82d3f5e_browser_name_str = "Edge";
+    } else if (var_b71e2a4c_user_agent_str.indexOf("Chrome") !== -1) {
+        var_c82d3f5e_browser_name_str = "Chrome";
+    } else if (var_b71e2a4c_user_agent_str.indexOf("Safari") !== -1) {
+        var_c82d3f5e_browser_name_str = "Safari";
+    } else if (var_b71e2a4c_user_agent_str.indexOf("Opera") !== -1 || var_b71e2a4c_user_agent_str.indexOf("OPR") !== -1) {
+        var_c82d3f5e_browser_name_str = "Opera";
+    }
+
+    var var_d93e4b6f_platform_str = navigator.platform;
+    var var_e04f5c7a_language_str = navigator.language;
+
+    var var_f15a6d8b_screen_width_num = screen.width;
+    var var_g26b7e9c_screen_height_num = screen.height;
+
+    var var_h37c8f0d_window_width_num = window.innerWidth;
+    var var_i48d9a1e_window_height_num = window.innerHeight;
+
+    var var_j59e0b2f_timezone_str = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    var var_k60f1c3a_output_arr = {
+        browser_name: String(var_c82d3f5e_browser_name_str),
+        platform: String(var_d93e4b6f_platform_str),
+        language: String(var_e04f5c7a_language_str),
+        screen_size: String(var_f15a6d8b_screen_width_num) + "x" + String(var_g26b7e9c_screen_height_num),
+        window_size: String(var_h37c8f0d_window_width_num) + "x" + String(var_i48d9a1e_window_height_num),
+        timezone: String(var_j59e0b2f_timezone_str)
+    };
+
+    return var_k60f1c3a_output_arr;
+}
+var visitor_system_details = fun_a9f3c2d1_detect_visitor_environment_i1_v1();
+//console.log(visitor_system_details);
+
+// Update is/isn't supported element
+if (visitor_system_details['browser_name'] === 'Firefox'){
+	fun_e16a0092_set_element_innerhtml_by_id_i2_v1('system_status', 'IS');
+} else if (visitor_system_details['browser_name'] === 'Chrome'){
+	fun_e16a0092_set_element_innerhtml_by_id_i2_v1('system_status', 'IS');
+} else {
+	fun_e16a0092_set_element_innerhtml_by_id_i2_v1('system_status', 'IS NOT');
+}
+
+// Update details elements
+fun_e16a0092_set_element_innerhtml_by_id_i2_v1('visitor_webbrowser_value', visitor_system_details['browser_name']);
+fun_e16a0092_set_element_innerhtml_by_id_i2_v1('visitor_platform_value', visitor_system_details['platform']);
+fun_e16a0092_set_element_innerhtml_by_id_i2_v1('visitor_language_value', visitor_system_details['language']);
+fun_e16a0092_set_element_innerhtml_by_id_i2_v1('visitor_screen_size_value', visitor_system_details['screen_size']);
+fun_e16a0092_set_element_innerhtml_by_id_i2_v1('visitor_window_size_value', visitor_system_details['window_size']);
+fun_e16a0092_set_element_innerhtml_by_id_i2_v1('visitor_timezone_value', visitor_system_details['timezone']);
+</script>
+</div>
+	</div>
+</div>
+<div class='section_outter' id='comments_1_outter'>
+	<div class='section_inner' id='comments_1_inner'>
+		<div class='item_holder' id='comments_1_holder'>
+    			<!-- Comments Plugin -->
+
+		</div>
+	</div>
+</div>
+<div class='section_outter no_print' id='footer_1_outter'>
+	<div class='section_inner' id='footer_1_inner'>
+		<div class='item_holder' id='top_button_holder'>
+			<button class='item' onclick="scroll_to_top_v1()" id="top_button">&uArr;</button>
+			<script>
+				function scroll_to_top_v1() {
+					document.body.scrollTop = 0;
+					document.documentElement.scrollTop = 0;
+				}
+			</script>
+		</div>
+	</div>
+</div>
+<div class='section_outter' id='footer_2_outter'>
+	<div class='section_inner' id='footer_2_inner'>
+		<div class='item_holder' id='copyright_notice_holder'>
+			<p class='item' id='copyright_notice'><a href="https://laws-lois.justice.gc.ca/eng/acts/C-42/Index.html">Copyright &#169</a> Example Gro., and others; <a href="https://en.wikipedia.org/wiki/All_rights_reserved">all rights reserved</a>, except where explicitly stated.</p>
+		</div>
+	</div>
+</div>
+<div class='section_outter' id='footer_3_outter'>
+	<div class='section_inner' id='footer_3_inner'>
+		<div class='item_holder' id='footer_links_holder'>
+			<ul class='item' id='footer_links'>
+    			<li class='footer_links_entry'><a href="http://localhost/regular-pages/legal.html#terms_of_service">Terms of Service</a></li>
+    			<li class='footer_links_entry'><a href="http://localhost/regular-pages/legal.html#privacy_policy">Privacy Policy</a></li>
+    			<li class='footer_links_entry'><a href="http://localhost/regular-pages/legal.html#licensing">Licensing</a></li>
+    			<!-- <li class='footer_links_entry'><a href="http://localhost/widget-pages/supported-systems.html">Supported Systems</a></li> -->
+			</ul>	
+		</div>
+	</div>
+</div>
+<div class='section_outter' id='footer_4_outter'>
+	<div class='section_inner' id='footer_4_inner'>
+		<div class='item_holder' id='footer_info_holder'>
+			<p class='item' id='footer_info'>
+    			Example Website is privately operated. To learn what this means <a href="http://localhost/assets/Privately Operated - Definition v1.txt">click here</a>.
+			</p>	
+		</div>
+	</div>
+</div>
+</body>
+</html>

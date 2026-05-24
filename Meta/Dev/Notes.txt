@@ -1,0 +1,3 @@
+# Notes
+
+- When publishing code it is a good idea to delete the contents of "/Source/Shared Data", because some files may contain full paths of local filesystem, which probably isn't something you want to disclose to the general public.
