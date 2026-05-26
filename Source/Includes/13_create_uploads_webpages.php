@@ -106,6 +106,9 @@ foreach ($var_3f15102e_uploads_arr as &$var_3f15102e_item_str){
 		require_once $var_3f15102e_location_str . '/Source/Custom Dependencies/text_file_to_html_paragraphs_v1.php';
 		$var_3f15102e_item_html_content_str = text_file_to_html_paragraphs_v1($var_3f15102e_item_str['path']);
 		$var_3f15102e_preview_el_str = "<div class='item_previews_text'>{$var_3f15102e_item_html_content_str}</div>";
+	} else {
+		$var_3f15102e_item_filename_str = basename($var_3f15102e_item_str['filename']);
+		$var_3f15102e_preview_el_str = "<div class='item_previews_unsupported'></div>";
 	}
 	if ($var_3f15102e_item_status_str === 'Exists'){
 	$var_3f15102e_item_content_str = <<<HEREDOC

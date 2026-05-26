@@ -4,28 +4,46 @@
 		<loc>http://localhost/index.html</loc>
 	</url>
 	<url>
-		<loc>http://localhost/widget-pages/version.html</loc>
-	</url>
-	<url>
-		<loc>http://localhost/widget-pages/supported-systems.html</loc>
-	</url>
-	<url>
 		<loc>http://localhost/widget-pages/statistics.html</loc>
 	</url>
 	<url>
-		<loc>http://localhost/widget-pages/search.html</loc>
-	</url>
-	<url>
-		<loc>http://localhost/widget-pages/brute-force.html</loc>
+		<loc>http://localhost/widget-pages/version.html</loc>
 	</url>
 	<url>
 		<loc>http://localhost/widget-pages/browse.html</loc>
 	</url>
 	<url>
-		<loc>http://localhost/upload-pages/ritchey-permissive-license-v19.html</loc>
+		<loc>http://localhost/widget-pages/brute-force.html</loc>
 	</url>
 	<url>
-		<loc>http://localhost/upload-pages/model-image-smiling-v1.html</loc>
+		<loc>http://localhost/widget-pages/search.html</loc>
+	</url>
+	<url>
+		<loc>http://localhost/widget-pages/supported-systems.html</loc>
+	</url>
+	<url>
+		<loc>http://localhost/other-resource-pages/other-resource-1.html</loc>
+	</url>
+	<url>
+		<loc>http://localhost/other-resource-pages/other-resource-2.html</loc>
+	</url>
+	<url>
+		<loc>http://localhost/link-pages/social-media-profile-1.html</loc>
+	</url>
+	<url>
+		<loc>http://localhost/link-pages/social-media-profile-2.html</loc>
+	</url>
+	<url>
+		<loc>http://localhost/status-update-pages/status-update-1.html</loc>
+	</url>
+	<url>
+		<loc>http://localhost/status-update-pages/status-update-2.html</loc>
+	</url>
+	<url>
+		<loc>http://localhost/upload-pages/file-21.html</loc>
+	</url>
+	<url>
+		<loc>http://localhost/upload-pages/file-1.html</loc>
 	</url>
 	<url>
 		<loc>http://localhost/upload-pages/file-9.html</loc>
@@ -59,9 +77,6 @@
 	</url>
 	<url>
 		<loc>http://localhost/upload-pages/file-22.html</loc>
-	</url>
-	<url>
-		<loc>http://localhost/upload-pages/file-21.html</loc>
 	</url>
 	<url>
 		<loc>http://localhost/upload-pages/file-20.html</loc>
@@ -100,45 +115,30 @@
 		<loc>http://localhost/upload-pages/file-10.html</loc>
 	</url>
 	<url>
-		<loc>http://localhost/upload-pages/file-1.html</loc>
+		<loc>http://localhost/upload-pages/ritchey-permissive-license-v19.html</loc>
 	</url>
 	<url>
-		<loc>http://localhost/status-update-pages/status-update-2.html</loc>
-	</url>
-	<url>
-		<loc>http://localhost/status-update-pages/status-update-1.html</loc>
-	</url>
-	<url>
-		<loc>http://localhost/regular-pages/legal.html</loc>
-	</url>
-	<url>
-		<loc>http://localhost/regular-pages/landing.html</loc>
-	</url>
-	<url>
-		<loc>http://localhost/regular-pages/about.html</loc>
-	</url>
-	<url>
-		<loc>http://localhost/post-pages/what-is-opensource.html</loc>
+		<loc>http://localhost/upload-pages/model-image-smiling-v1.html</loc>
 	</url>
 	<url>
 		<loc>http://localhost/post-pages/what-is-closed-source.html</loc>
 	</url>
 	<url>
-		<loc>http://localhost/other-resource-pages/other-resource-2.html</loc>
+		<loc>http://localhost/post-pages/what-is-opensource.html</loc>
 	</url>
 	<url>
-		<loc>http://localhost/other-resource-pages/other-resource-1.html</loc>
+		<loc>http://localhost/regular-pages/about.html</loc>
 	</url>
 	<url>
-		<loc>http://localhost/navigation-pages/navigation.html</loc>
+		<loc>http://localhost/regular-pages/landing.html</loc>
+	</url>
+	<url>
+		<loc>http://localhost/regular-pages/legal.html</loc>
 	</url>
 	<url>
 		<loc>http://localhost/navigation-pages/404.html</loc>
 	</url>
 	<url>
-		<loc>http://localhost/link-pages/social-media-profile-2.html</loc>
-	</url>
-	<url>
-		<loc>http://localhost/link-pages/social-media-profile-1.html</loc>
+		<loc>http://localhost/navigation-pages/navigation.html</loc>
 	</url>
 </urlset>

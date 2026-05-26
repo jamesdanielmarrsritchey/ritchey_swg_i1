@@ -66,8 +66,8 @@ if (is_numeric($var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_a
    	require_once $var_fdab649b_location_str . '/Source/Custom Dependencies/subtract_days_from_timestamp_i1_v1.php';
 		$var_fdab649b_age_limit_timestamp = fun_a3c91f2d_subtract_days_from_timestamp_i1_v1($var_fdab649b_current_timestamp_num, intval($var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['uploads_age_limit']));
 		$var_fdab649b_date_uploaded_str = json_decode($var_fdab649b_item_str);
-		require_once $var_fdab649b_location_str . '/Source/Custom Dependencies/string_to_array_by_lines_i1776011657_v0.1.php';
-		$var_fdab649b_date_uploaded_str = fun_ce50722f_string_to_array_by_lines_i1776011657_v0_1($var_fdab649b_date_uploaded_str);
+		require_once $var_fdab649b_location_str . '/Source/Custom Dependencies/string_to_array_by_lines_i1776011657_v0.2.php';
+		$var_fdab649b_date_uploaded_str = fun_ce50722f_string_to_array_by_lines_i1776011657_v0_2($var_fdab649b_date_uploaded_str, TRUE);
 		$var_fdab649b_date_uploaded_str = trim($var_fdab649b_date_uploaded_str['date_uploaded']);
 		$var_fdab649b_item_timestamp_obj = strtotime($var_fdab649b_date_uploaded_str);
 		if (intval($var_fdab649b_item_timestamp_obj) < intval($var_fdab649b_age_limit_timestamp)){
@@ -76,23 +76,23 @@ if (is_numeric($var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_a
 			$var_fdab649b_item_str = json_encode($var_fdab649b_item_str);
 		}
 	}
-	unset($var_4acd0477_item_str);
+	unset($var_fdab649b_item_str);
 }
 $var_fdab649b_entries_arr = array_filter($var_fdab649b_entries_arr);
 ### Flag excess entries (if applicable)
 if (is_numeric("{$var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['uploads_quantity_limit']}") === TRUE){
-	$var_fdab649b_n_num = intval($var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['uploads_quantity_limit']);
+	$var_fdab649b_n2_num = intval($var_114285e6616f4a028017a2c7cb9fd3cd_configuration_information_arr['uploads_quantity_limit']);
 	foreach ($var_fdab649b_entries_arr as &$var_fdab649b_item_str) {
-		if ($var_fdab649b_n_num > 0){
+		if ($var_fdab649b_n2_num > 0){
 			// Do Nothing
 		} else {
 			$var_fdab649b_item_str = json_decode($var_fdab649b_item_str);
 			$var_fdab649b_item_str = $var_fdab649b_item_str . PHP_EOL . 'Flag: Excess';
 			$var_fdab649b_item_str = json_encode($var_fdab649b_item_str);
 		}
-		$var_fdab649b_n_num--;
+		$var_fdab649b_n2_num--;
 	}
-	unset($var_4acd0477_item_str);
+	unset($var_fdab649b_item_str);
 }
 ### Write file
 if (@empty($var_fdab649b_entries_arr) === FALSE){
