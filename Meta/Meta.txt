@@ -2,8 +2,8 @@
 
 NAME: Ritchey Static Website Generator
 IMPLEMENTATION: 1
-VERSION: 3
+VERSION: 4
 RELEASE TYPE: Stable
-LONG IDENTIFIER: Ritchey Static Website Generator i1 v3
-SHORT IDENTIFIER: RSWGi1v3
+LONG IDENTIFIER: Ritchey Static Website Generator i1 v4
+SHORT IDENTIFIER: RSWGi1v4
 AUTHOR: James Daniel Marrs Ritchey

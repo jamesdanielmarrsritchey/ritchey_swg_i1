@@ -6,6 +6,7 @@ HIGH PRIORITY:
 - 
 
 MEDIUM PRIORITY:
+- Add KMT outputs to search results, so each results shows good of a match it is.
 - Add javascript support for converting file preview text that has custom markup to HTML. The javascript doesn't have to perform the conversion. It can be pre-written into the page using PHP, and Javascript just decides which version to display. "Enhanced View (Any Ritchey Markup Language v4 markup will be interpretted visually)".
 - Explicitly specify more of the colours within the default themes so that inversion, and shifting colours works better. Currently some colours aren't shifted, or inverted, because they aren't defined.
 - Create a resources bash script which automatically generates thumbnails for image, and video uploads using ffmpeg.

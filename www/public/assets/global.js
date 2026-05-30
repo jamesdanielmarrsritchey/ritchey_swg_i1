@@ -1349,4 +1349,7 @@ var_7c2a9b1e_next_url_str = fun_b73e4c19_replace_all_url_parameters_from_object_
 	if (fun_e16a0092_get_element_innerhtml_by_id_i1_v1('sb_state_current_entry') == '1'){
 		fun_a4c92b1e_toggle_element_display_i2_v1('prev_next_control_button_link_previous');
 	}
+
+	// Hide Loading Icon
+	fun_a4c92b1e_toggle_element_display_i2_v1('sb_loading_section');
 }

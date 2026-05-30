@@ -6,6 +6,7 @@ TIMELINE:
 - Version 1 completed March 15, 2026.
 - Version 2 completed May 24, 2026.
 - Version 3 completed May 25, 2026.
+- Version 4 completed May 30, 2026.
 
 HIGHLIGHTED CHANGES:
 - In version 0.1 the website used Javascript to create entries for the search, and browse pages on-the-fly. In version 1, the website stores all entries in HTML pages, and merely uses Javascript to decide when to display them.
@@ -13,3 +14,4 @@ HIGHLIGHTED CHANGES:
 - Version 1 switched from using a single sitemap.xml file to using numbered sitemap files and a sitemap index file.
 - Version 2 switched from chunked HTML pages to async JSON loading for search/browse entries.
 - Version 2 added support for multiple themes.
+- Version 4 added a loading icon to browsing/searching, so it's clearer to the user that content is loading.

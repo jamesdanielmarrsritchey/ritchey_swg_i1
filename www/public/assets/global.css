@@ -561,3 +561,41 @@ h1 {
 	margin-right: 3px;
 	display: inline-block;
 }
+
+#sb_loading_section {
+	width: 100%;
+	padding: 25px;
+	text-align: center;
+}
+.loading_icon_holder {
+  display: inline-block;
+  align-items: center;
+  gap: 12px;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+.loading_icon {
+  width: 200px;
+  height: 200px;
+  border: 24px solid #cccccc;
+  border-top: 24px solid #333333;
+  border-radius: 50%;
+  animation: loading_icon_spin 1s linear infinite;
+}
+
+.loading_text {
+	padding: 5px;
+	font-size: 26px;
+	color: #333333;
+}
+
+@keyframes loading_icon_spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

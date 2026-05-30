@@ -133,6 +133,13 @@ fun_e16a0092_set_element_innerhtml_by_id_i2_v1('types_or_label', var_da1cdfc8_ot
 <span id='sb_state_kmt'>0</span>
 </div>
 
+<div class='no_print' id='sb_loading_section'>
+<div class="loading_icon_holder">
+  <div class="loading_icon"></div>
+  <div class="loading_text">Loading</div>
+</div>
+</div>
+
 <div class='no_print' id='sb_entries_holder'>
 
 </div>
@@ -184,7 +191,7 @@ if (fun_e16a0092_get_element_innerhtml_by_id_i1_v1('sb_state_pce') != false){
 var var_51bafb59_database_size_num = var_da1cdfc8_database_size_gnum;
 
 // Set Cache Expiration Time (in minutes)
-var var_51bafb59_cache_expiration_num = 0; // For testing use value of "0", but for live system using "1440" or another large number so users can benefit from caching. (HOWEVER CURRENTLY ALWAYS USE ZERO BECAUSE CACHING CAUSES ISSUES WHERE ENTRIES CAN ONLY BE DISPLAYED IF ALREADY CACHED. ITS NOT CHECKING IF SOMETHING ISN'T CACHED)
+var var_51bafb59_cache_expiration_num = 1440; // For testing use value of "0", but for live system using "1440" or another large number so users can benefit from caching. (IF HAVING ISSUES WHERE THINGS AREN'T BEING DISPLAYED IN RESULTS UNLESS ALREADY CACHED, SET TO "0".)
 
 // Determine Order & Database URL
 // // Order
